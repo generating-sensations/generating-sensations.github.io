@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Does AI Generate When It Generates Sensation? | CHI 2027 Workshop</title>
+<meta name="description" content="A CHI 2027 workshop on representations, data, and evaluation for generative AI in multisensory interfaces.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coral: #E97A73;
+    --coral-deep: #C9534B;
+    --tint: #FBE4E2;
+    --panel: #EAEAEA;
+    --page: #F5F5F5;
+    --ink: #1A1A1A;
+    --muted: #555555;
+    --line: #C9C9C9;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--coral-deep); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--coral-deep); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* hero */
+  header.hero { padding: 72px 0 40px; }
+  .venue { font-weight: 500; color: var(--muted); margin: 0 0 18px; }
+  h1 {
+    font-size: clamp(2.2rem, 5.4vw, 3.9rem);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    margin: 0 0 18px;
+    max-width: 16ch;
+  }
+  .subtitle { font-size: clamp(1.1rem, 2.2vw, 1.4rem); color: var(--muted); margin: 0 0 28px; max-width: 40ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 12px 20px; border-radius: 999px;
+    font-weight: 700; text-decoration: none; font-size: 0.98rem;
+  }
+  .btn-primary { background: var(--coral); color: #fff; }
+  .btn-primary:hover { background: var(--coral-deep); }
+  .btn-ghost { border: 1.5px solid var(--line); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  .teaser { margin: 8px 0 24px; }
+  .teaser img { width: 100%; height: auto; display: block; border-radius: 8px; }
+
+  /* sections: whitespace and a hairline, no panels */
+  section { margin: 0; padding: 48px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; }
+  section h2 { font-size: 1.5rem; margin: 0 0 16px; letter-spacing: -0.01em; }
+  .prose { max-width: 68ch; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* foundations */
+  .foundations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .foundation h3 { margin: 0 0 8px; font-size: 1.08rem; }
+  .foundation p { margin: 0 0 12px; font-size: 0.96rem; }
+  .gap {
+    display: inline-block; font-weight: 600; color: var(--coral-deep);
+    background: var(--tint); border: 1.5px dashed var(--coral); border-radius: 8px;
+    padding: 2px 10px; font-size: 0.86rem;
+  }
+
+  /* dates */
+  .dates { display: grid; grid-template-columns: max-content 1fr; gap: 10px 28px; margin: 20px 0; }
+  .dates dt { font-weight: 700; }
+  .dates dd { margin: 0; }
+  .note { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+  /* sessions */
+  .sessions { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 20px; }
+  .session h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .session p { margin: 0; font-size: 0.96rem; }
+
+  /* organizers */
+  .organizers { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 16px; }
+  .organizers a { font-weight: 700; color: var(--ink); text-decoration: none; }
+  .organizers a:hover { color: var(--coral-deep); text-decoration: underline; }
+  .organizers span { display: block; color: var(--muted); font-size: 0.9rem; line-height: 1.35; }
+
+  footer { padding: 32px 0 56px; color: var(--muted); font-size: 0.92rem; }
+
+  @media (max-width: 760px) {
+    header.hero { padding-top: 48px; }
+    .foundations, .sessions { grid-template-columns: 1fr; }
+    .organizers { grid-template-columns: repeat(2, 1fr); }
+    .foundations { gap: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="venue">A CHI 2027 workshop in Pittsburgh, May 2027</p>
+    <h1>What Does AI Generate When It Generates Sensation?</h1>
+    <p class="subtitle">Representations, data, and evaluation for multisensory interfaces</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#call">Submit a position paper</a>
+      <a class="btn btn-ghost" href="#format">See the workshop format</a>
+    </div>
+  </header>
+
+  <!-- Upload teaser.png to the repository to show it here. The figure hides itself if the file is missing. -->
+  <figure class="teaser">
+    <img src="teaser.png" alt="Left, photos of multisensory haptic devices labeled Breathing, Taste, Thermal, and Pain-like heat. Right, a diagram from a prompt or scene through generative AI, a representation with meaning, perception, and physical layers, a device, and the body. Dashed tags mark three gaps, little paired data, no shared perceptual description, and hard to judge, above the themes data and ground truth, representation, and evaluation." onerror="this.parentElement.remove()">
+  </figure>
+
+  <section id="about"><div class="prose">
+    <h2>About the workshop</h2>
+    <p>This workshop brings together researchers in haptics, multisensory interaction, perception science, and machine learning to ask what generative AI needs to produce multisensory haptic experiences. While generative models can now render vibrotactile feedback, sensations such as temperature, pressure, smell, and taste still lack a shared representation, datasets that capture how people perceive them, and methods to evaluate generated output.</p>
+    <p>It is the second in a series that began with <a href="https://doi.org/10.1145/3830397.3842700">Haptics Beyond Vibration</a> at UIST 2026.</p>
+  </div></section>
+
+  <section id="themes">
+    <h2>Three foundational questions</h2>
+    <div>
+      <div class="foundations">
+        <article class="foundation">
+          <h3>Representation</h3>
+          <p>What would a representation that connects meaning, perception, and device parameters look like, and should it include the state of the body?</p>
+          <span class="gap">no shared description</span>
+        </article>
+        <article class="foundation">
+          <h3>Data and ground truth</h3>
+          <p>What should a multisensory data sample include, and how can we collect enough of them when every sample needs a person, a device, and time?</p>
+          <span class="gap">little paired data</span>
+        </article>
+        <article class="foundation">
+          <h3>Evaluation</h3>
+          <p>How do we know that a generated sensation is right when the real reference cannot be brought into the lab, or does not exist at all?</p>
+          <span class="gap">hard to judge</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="call">
+    <h2>Call for participation</h2>
+    <div>
+      <p class="prose">We invite researchers and practitioners in haptics, multisensory interaction, perception science, machine learning, and related fields to submit a two- to four-page position paper, excluding references, in the ACM single-column format. With authors' consent, accepted papers will be posted on arXiv and linked from this page. At least one author of each accepted paper must attend in person.</p>
+      <dl class="dates">
+        <dt>Submission deadline</dt><dd>February 11, 2027 (AoE)</dd>
+        <dt>Notification</dt><dd>February 22, 2027</dd>
+        <dt>Workshop</dt><dd>May 2027 at CHI in Pittsburgh, exact day to be announced</dd>
+      </dl>
+      <!-- Replace the note below with a button linking to the Google Form once it is ready. -->
+      <p class="note">The submission form opens in December 2026. Questions can go to <a href="mailto:CONTACT@EXAMPLE.ORG">CONTACT@EXAMPLE.ORG</a>.</p>
+    </div>
+  </section>
+
+  <section id="format">
+    <h2>Workshop format</h2>
+    <p class="prose">The workshop runs as two sessions and expects 30 to 40 participants.</p>
+    <div class="sessions">
+      <div class="session">
+        <h3>Session one</h3>
+        <p>Every accepted author gives a short lightning talk. Participants then play sensation telephone, an exercise in which people and a generative model encode a sensation and try to reconstruct it from the encoding alone.</p>
+      </div>
+      <div class="session">
+        <h3>Session two</h3>
+        <p>Small groups use what got lost in the exercise to discuss how to design representations, collect data, and evaluate generated sensations, and outline a representation schema, a reporting checklist, and an evaluation framework.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="organizers">
+    <h2>Organizers</h2>
+    <div>
+      <ul class="organizers">
+        <li><a href="https://znzhang.com/">Zining Zhang</a><span>University of Maryland</span></li>
+        <li><a href="https://www.linkedin.com/in/danielhonrales/">Daniel Honrales</a><span>University of Texas at Dallas</span></li>
+        <li><a href="https://jasbrooks.com/">Jas Brooks</a><span>MIT</span></li>
+        <li><a href="https://jessekim.com/">Jin Ryong Kim</a><span>University of Texas at Dallas</span></li>
+        <li><a href="https://meilab-hk.github.io/">Kening Zhu</a><span>City University of Hong Kong</span></li>
+        <li><a href="http://oliverschneider.ca/">Oliver Schneider</a><span>University of Waterloo</span></li>
+        <li><a href="https://hastiseifi.com/">Hasti Seifi</a><span>Arizona State University</span></li>
+        <li><a href="https://smartlab.cs.umd.edu/">Huaishu Peng</a><span>University of Maryland</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Part of the workshop series that began at UIST 2026. Contact <a href="mailto:CONTACT@EXAMPLE.ORG">CONTACT@EXAMPLE.ORG</a>.
+  </footer>
+</div>
+
+</body>
+</html>
